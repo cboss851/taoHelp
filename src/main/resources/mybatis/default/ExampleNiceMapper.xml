@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.space.mapper.ExampleNiceMapper">
+    <resultMap id="BaseResultMap" type="com.tao.space.entity.ExampleNice">
+        <id column="example_id" jdbcType="BIGINT" property="exampleId" />
+        <result column="trade_id" jdbcType="BIGINT" property="tradeId" />
+        <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="char_test" jdbcType="CHAR" property="charTest" />
+        <result column="blob_test" jdbcType="LONGVARBINARY" property="blobTest" />
+        <result column="text_test" jdbcType="VARCHAR" property="textTest" />
+        <result column="mediumtext_test" jdbcType="VARCHAR" property="mediumtextTest" />
+        <result column="longtext_test" jdbcType="VARCHAR" property="longtextTest" />
+        <result column="tinyint_abc" jdbcType="TINYINT" property="tinyintAbc" />
+        <result column="smallint_abc" jdbcType="SMALLINT" property="smallintAbc" />
+        <result column="int_abc" jdbcType="INTEGER" property="intAbc" />
+        <result column="bigint_abc" jdbcType="BIGINT" property="bigintAbc" />
+        <result column="float_abc" jdbcType="REAL" property="floatAbc" />
+        <result column="double_abc" jdbcType="DOUBLE" property="doubleAbc" />
+        <result column="decimal_abc" jdbcType="DECIMAL" property="decimalAbc" />
+        <result column="date_abc" jdbcType="DATE" property="dateAbc" />
+        <result column="datetime_abc" jdbcType="TIMESTAMP" property="datetimeAbc" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        example_id,trade_id,order_no,name,type,char_test,blob_test,text_test,mediumtext_test,longtext_test,tinyint_abc,smallint_abc,int_abc,bigint_abc,float_abc,double_abc,decimal_abc,date_abc,datetime_abc,create_time,update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from example_nice
+        where example_id = #{exampleId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from example_nice
+        where example_id = #{exampleId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.tao.space.entity.ExampleNice">
+        <selectKey keyProperty="exampleId" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into example_nice (trade_id,order_no,name,type,char_test,blob_test,text_test,mediumtext_test,longtext_test,tinyint_abc,smallint_abc,int_abc,bigint_abc,float_abc,double_abc,decimal_abc,date_abc,datetime_abc,create_time,update_time)
+        values (#{tradeId,jdbcType=BIGINT},#{orderNo,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},#{charTest,jdbcType=CHAR},#{blobTest,jdbcType=LONGVARBINARY},#{textTest,jdbcType=VARCHAR},#{mediumtextTest,jdbcType=VARCHAR},#{longtextTest,jdbcType=VARCHAR},#{tinyintAbc,jdbcType=TINYINT},#{smallintAbc,jdbcType=SMALLINT},#{intAbc,jdbcType=INTEGER},#{bigintAbc,jdbcType=BIGINT},#{floatAbc,jdbcType=REAL},#{doubleAbc,jdbcType=DOUBLE},#{decimalAbc,jdbcType=DECIMAL},#{dateAbc,jdbcType=DATE},#{datetimeAbc,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.tao.space.entity.ExampleNice">
+        <selectKey keyProperty="exampleId" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into example_nice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+          <if test="tradeId != null">
+              trade_id,
+          </if>
+          <if test="orderNo != null">
+              order_no,
+          </if>
+          <if test="name != null">
+              name,
+          </if>
+          <if test="type != null">
+              type,
+          </if>
+          <if test="charTest != null">
+              char_test,
+          </if>
+          <if test="blobTest != null">
+              blob_test,
+          </if>
+          <if test="textTest != null">
+              text_test,
+          </if>
+          <if test="mediumtextTest != null">
+              mediumtext_test,
+          </if>
+          <if test="longtextTest != null">
+              longtext_test,
+          </if>
+          <if test="tinyintAbc != null">
+              tinyint_abc,
+          </if>
+          <if test="smallintAbc != null">
+              smallint_abc,
+          </if>
+          <if test="intAbc != null">
+              int_abc,
+          </if>
+          <if test="bigintAbc != null">
+              bigint_abc,
+          </if>
+          <if test="floatAbc != null">
+              float_abc,
+          </if>
+          <if test="doubleAbc != null">
+              double_abc,
+          </if>
+          <if test="decimalAbc != null">
+              decimal_abc,
+          </if>
+          <if test="dateAbc != null">
+              date_abc,
+          </if>
+          <if test="datetimeAbc != null">
+              datetime_abc,
+          </if>
+          <if test="createTime != null">
+              create_time,
+          </if>
+          <if test="updateTime != null">
+              update_time,
+          </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="tradeId != null">
+              #{tradeId,jdbcType=BIGINT},
+          </if>
+          <if test="orderNo != null">
+              #{orderNo,jdbcType=VARCHAR},
+          </if>
+          <if test="name != null">
+              #{name,jdbcType=VARCHAR},
+          </if>
+          <if test="type != null">
+              #{type,jdbcType=VARCHAR},
+          </if>
+          <if test="charTest != null">
+              #{charTest,jdbcType=CHAR},
+          </if>
+          <if test="blobTest != null">
+              #{blobTest,jdbcType=LONGVARBINARY},
+          </if>
+          <if test="textTest != null">
+              #{textTest,jdbcType=VARCHAR},
+          </if>
+          <if test="mediumtextTest != null">
+              #{mediumtextTest,jdbcType=VARCHAR},
+          </if>
+          <if test="longtextTest != null">
+              #{longtextTest,jdbcType=VARCHAR},
+          </if>
+          <if test="tinyintAbc != null">
+              #{tinyintAbc,jdbcType=TINYINT},
+          </if>
+          <if test="smallintAbc != null">
+              #{smallintAbc,jdbcType=SMALLINT},
+          </if>
+          <if test="intAbc != null">
+              #{intAbc,jdbcType=INTEGER},
+          </if>
+          <if test="bigintAbc != null">
+              #{bigintAbc,jdbcType=BIGINT},
+          </if>
+          <if test="floatAbc != null">
+              #{floatAbc,jdbcType=REAL},
+          </if>
+          <if test="doubleAbc != null">
+              #{doubleAbc,jdbcType=DOUBLE},
+          </if>
+          <if test="decimalAbc != null">
+              #{decimalAbc,jdbcType=DECIMAL},
+          </if>
+          <if test="dateAbc != null">
+              #{dateAbc,jdbcType=DATE},
+          </if>
+          <if test="datetimeAbc != null">
+              #{datetimeAbc,jdbcType=TIMESTAMP},
+          </if>
+          <if test="createTime != null">
+              #{createTime,jdbcType=TIMESTAMP},
+          </if>
+          <if test="updateTime != null">
+              #{updateTime,jdbcType=TIMESTAMP},
+          </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tao.space.entity.ExampleNice">
+        update example_nice
+        <set>
+          <if test="tradeId != null">
+              trade_id = #{tradeId,jdbcType=BIGINT},
+          </if>
+          <if test="orderNo != null">
+              order_no = #{orderNo,jdbcType=VARCHAR},
+          </if>
+          <if test="name != null">
+              name = #{name,jdbcType=VARCHAR},
+          </if>
+          <if test="type != null">
+              type = #{type,jdbcType=VARCHAR},
+          </if>
+          <if test="charTest != null">
+              char_test = #{charTest,jdbcType=CHAR},
+          </if>
+          <if test="blobTest != null">
+              blob_test = #{blobTest,jdbcType=LONGVARBINARY},
+          </if>
+          <if test="textTest != null">
+              text_test = #{textTest,jdbcType=VARCHAR},
+          </if>
+          <if test="mediumtextTest != null">
+              mediumtext_test = #{mediumtextTest,jdbcType=VARCHAR},
+          </if>
+          <if test="longtextTest != null">
+              longtext_test = #{longtextTest,jdbcType=VARCHAR},
+          </if>
+          <if test="tinyintAbc != null">
+              tinyint_abc = #{tinyintAbc,jdbcType=TINYINT},
+          </if>
+          <if test="smallintAbc != null">
+              smallint_abc = #{smallintAbc,jdbcType=SMALLINT},
+          </if>
+          <if test="intAbc != null">
+              int_abc = #{intAbc,jdbcType=INTEGER},
+          </if>
+          <if test="bigintAbc != null">
+              bigint_abc = #{bigintAbc,jdbcType=BIGINT},
+          </if>
+          <if test="floatAbc != null">
+              float_abc = #{floatAbc,jdbcType=REAL},
+          </if>
+          <if test="doubleAbc != null">
+              double_abc = #{doubleAbc,jdbcType=DOUBLE},
+          </if>
+          <if test="decimalAbc != null">
+              decimal_abc = #{decimalAbc,jdbcType=DECIMAL},
+          </if>
+          <if test="dateAbc != null">
+              date_abc = #{dateAbc,jdbcType=DATE},
+          </if>
+          <if test="datetimeAbc != null">
+              datetime_abc = #{datetimeAbc,jdbcType=TIMESTAMP},
+          </if>
+          <if test="createTime != null">
+              create_time = #{createTime,jdbcType=TIMESTAMP},
+          </if>
+          <if test="updateTime != null">
+              update_time = #{updateTime,jdbcType=TIMESTAMP},
+          </if>
+        </set>
+        where example_id = #{exampleId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tao.space.entity.ExampleNice">
+        update example_nice
+        set
+          trade_id = #{tradeId,jdbcType=BIGINT},
+          order_no = #{orderNo,jdbcType=VARCHAR},
+          name = #{name,jdbcType=VARCHAR},
+          type = #{type,jdbcType=VARCHAR},
+          char_test = #{charTest,jdbcType=CHAR},
+          blob_test = #{blobTest,jdbcType=LONGVARBINARY},
+          text_test = #{textTest,jdbcType=VARCHAR},
+          mediumtext_test = #{mediumtextTest,jdbcType=VARCHAR},
+          longtext_test = #{longtextTest,jdbcType=VARCHAR},
+          tinyint_abc = #{tinyintAbc,jdbcType=TINYINT},
+          smallint_abc = #{smallintAbc,jdbcType=SMALLINT},
+          int_abc = #{intAbc,jdbcType=INTEGER},
+          bigint_abc = #{bigintAbc,jdbcType=BIGINT},
+          float_abc = #{floatAbc,jdbcType=REAL},
+          double_abc = #{doubleAbc,jdbcType=DOUBLE},
+          decimal_abc = #{decimalAbc,jdbcType=DECIMAL},
+          date_abc = #{dateAbc,jdbcType=DATE},
+          datetime_abc = #{datetimeAbc,jdbcType=TIMESTAMP},
+          create_time = #{createTime,jdbcType=TIMESTAMP},
+          update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where example_id = #{exampleId,jdbcType=BIGINT}
+    </update>
+</mapper>

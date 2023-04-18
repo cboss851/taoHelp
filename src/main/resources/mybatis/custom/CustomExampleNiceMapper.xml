@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.space.mapper.custom.CustomExampleNiceMapper">
+    <select id="list" resultType="com.tao.space.service.examplenice.dto.ExampleNiceListModel">
+        select * from example_nice
+    </select>
+    <select id="listOrder" resultType="com.tao.space.service.examplenice.dto.ExampleNiceOrderListModel">
+        select * from example_nice
+		<where>
+      <if test="exampleId != null">
+          and example_id > #{exampleId}
+      </if>
+      <if test="tradeId != null">
+		<![CDATA[
+          and trade_id < #{tradeId}
+		]]>
+      </if>
+      <if test="orderNo != null and orderNo != ''">
+          and order_no = #{orderNo}
+      </if>
+      <if test="intAbc != null">
+          and int_abc >= #{intAbc}
+      </if>
+      <if test="smallintAbc != null">
+		<![CDATA[
+          and smallint_abc <= #{smallintAbc}
+		]]>
+      </if>
+      <if test="bigintAbcStart != null">
+		<![CDATA[
+          and bigint_abc > #{bigintAbcStart}
+        ]]>
+      </if>
+      <if test="bigintAbcEnd != null">
+          <![CDATA[
+          and bigint_abc < #{bigintAbcEnd}
+          ]]>
+      </if>
+      <if test="createTimeStart != null">
+          <![CDATA[
+          and create_time >= #{createTimeStart}
+          ]]>
+      </if>
+      <if test="createTimeEnd != null">
+          <![CDATA[
+          and create_time <= #{createTimeEnd}
+          ]]>
+      </if>
+      <if test="name != null and name != ''">
+		  and name like concat('%',#{name},'%')
+      </if>
+      <if test="typeList != null">
+          and type in
+            <foreach item="item" index="index" collection="typeList" open="(" separator="," close=" )">
+                #{item}
+        	</foreach>
+      </if>
+		</where>
+    </select>
+</mapper>

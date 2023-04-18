@@ -1,0 +1,25 @@
+CREATE TABLE `example_nice`
+(
+    `example_id`      bigint                                                        NOT NULL AUTO_INCREMENT COMMENT '' ID '',
+    `trade_id`        bigint         DEFAULT NULL COMMENT '' 交易号 '',
+    `order_no`        varchar(64)    DEFAULT NULL COMMENT '' 定单号 '',
+    `name`            varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '' 名称 '',
+    `type`            varchar(255)   DEFAULT '' abc '',
+    `char_test`       char(30)       DEFAULT NULL COMMENT '' char_test测试 '',
+    `blob_test`       blob,
+    `text_test`       text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+    `mediumtext_test` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+    `longtext_test`   longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+    `tinyint_abc`     tinyint        DEFAULT NULL,
+    `smallint_abc`    smallint       DEFAULT NULL,
+    `int_abc`         int            DEFAULT NULL,
+    `bigint_abc`      bigint         DEFAULT NULL,
+    `float_abc`       float          DEFAULT NULL,
+    `double_abc`      double         DEFAULT NULL,
+    `decimal_abc`     decimal(18, 8) DEFAULT NULL,
+    `date_abc`        date           DEFAULT NULL,
+    `datetime_abc`    datetime       DEFAULT NULL,
+    `create_time`     timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '' 记录创建时间 '',
+    `update_time`     timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '' 记录更新时间 '',
+    PRIMARY KEY (`example_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT=''新建新表请拷贝这个样例模板'';

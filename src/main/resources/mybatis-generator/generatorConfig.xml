@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<properties resource="mybatis-generator/generatorConfig.properties"/>
+	<context id="mall" targetRuntime="MyBatis3">
+		<!-- Java文件编码UTF-8 -->
+		<property name="javaFileEncoding" value="utf-8"/>
+		<!-- 配置生成父model属性 -->
+		<property name="useToStringFromRoot" value="true"/>
+		<!-- 配置插件 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+		<plugin type="com.tao.commons.mybatis.plugins.CustomModelPlugin"></plugin>
+
+		<!-- 关闭注解信息 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false"/>
+			<property name="suppressDate" value="true"/>
+		</commentGenerator>
+		<!-- 驱动类路径，见properties配置 -->
+		<jdbcConnection driverClass="${jdbc.driver}"
+						connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
+			<property name="nullCatalogMeansCurrent" value="true"/>
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="${model.package}"
+							targetProject="${java.target}">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="${sqlmapxml.package}"
+						 targetProject="${resource.target}">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="${mapper.package}" targetProject="${java.target}">
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+
+		<!-- ==========================定义表========================== -->
+		<!--		<table tableName="t_single">-->
+		<!--			<generatedKey column="single_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--		</table>-->
+<!--		<table tableName="sys_user" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false"-->
+<!--			   enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false"-->
+<!--			   selectByExampleQueryId="false">-->
+<!--			<generatedKey column="user_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+<!--		</table>-->
+		<!--        <table tableName="sys_organization" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="organization_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<!--        <table tableName="sys_resource" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="resource_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<!--        <table tableName="sys_role" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="role_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<!--        <table tableName="sys_role_resource_relation" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="role_resource_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<!--        <table tableName="sys_user_organization_relation" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="user_org_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<!--        <table tableName="sys_user_role_relation" enableCountByExample="false"-->
+		<!--               enableUpdateByExample="false"-->
+		<!--               enableDeleteByExample="false"-->
+		<!--               enableSelectByExample="false"-->
+		<!--               selectByExampleQueryId="false">-->
+		<!--            <generatedKey column="user_role_id" sqlStatement="Mysql" identity="true" type="post"/>-->
+		<!--        </table>-->
+		<table tableName="order" enableCountByExample="false"
+			   enableUpdateByExample="false"
+			   enableDeleteByExample="false"
+			   enableSelectByExample="false"
+			   selectByExampleQueryId="false">
+			<generatedKey column="example_id" sqlStatement="Mysql" identity="true" type="post"/>
+		</table>
+	</context>
+</generatorConfiguration>
