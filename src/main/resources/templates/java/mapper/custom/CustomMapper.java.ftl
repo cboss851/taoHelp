@@ -9,7 +9,6 @@ import java.util.List;
 * ${table.comment!}
 *
 * @author ${author}
-* @Date ${date}
 */
 public interface Custom${table.nameUpperCamelCase}Mapper {
     List<${table.nameUpperCamelCase}ListModel> list(${table.nameUpperCamelCase}ListDaoReq req);

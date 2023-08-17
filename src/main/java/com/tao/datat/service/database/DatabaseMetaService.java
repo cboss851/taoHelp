@@ -121,7 +121,7 @@ public class DatabaseMetaService {
             connection = DriverManager.getConnection(ds.getUrl(), ds.getUsername(), ds.getPassword());
             //从connection中获取数据库的元数据
             DatabaseMetaData databaseMetaData = connection.getMetaData();
-            ResultSet rs = databaseMetaData.getTables(connection.getCatalog(), "%" + schema + "%", "%" + tableName + "%", null);
+            ResultSet rs = databaseMetaData.getTables(connection.getCatalog(),  schema , tableName, null);
             Database database = this.getDatabase(ds);
             log.info("tableName: " + tableName);
             List<Table> tables = new ArrayList<>();

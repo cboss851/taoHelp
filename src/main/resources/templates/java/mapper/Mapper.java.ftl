@@ -7,7 +7,6 @@ import ${packageName}.entity.${entityClassName};
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 public interface ${mapperClassName} {
     int deleteByPrimaryKey(Long ${table.primaryKeyNameLowerCamelCase});

@@ -79,11 +79,6 @@
             <version>1.2.5</version>
         </dependency>
         <dependency>
-            <groupId>com.tao</groupId>
-            <artifactId>tao-commons</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.7.10</version>
@@ -112,6 +107,18 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>2.3.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>6.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>tao-commons</groupId>
+            <artifactId>tao-commons</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/tao-commons-0.0.1.jar</systemPath>
         </dependency>
     </dependencies>
 

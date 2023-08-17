@@ -7,7 +7,6 @@ import ${packageName}.service.${table.nameLower}.dto.${table.nameUpperCamelCase}
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 public interface ${table.nameUpperCamelCase}ManagerService {
 

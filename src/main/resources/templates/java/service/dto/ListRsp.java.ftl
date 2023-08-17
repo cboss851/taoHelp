@@ -20,7 +20,6 @@ import java.util.Date;
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Data
 public class ${table.nameUpperCamelCase}ListRsp implements Serializable {

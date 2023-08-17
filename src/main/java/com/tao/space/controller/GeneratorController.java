@@ -1,8 +1,8 @@
 package com.tao.space.controller;
 
 import com.tao.commons.result.ResponseResult;
-import com.tao.generator.GeneratorService;
-import com.tao.generator.dto.*;
+import com.tao.generator.standard.GeneratorService;
+import com.tao.generator.standard.dto.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * @Author：cboss
  */
-@Api(tags = "生成代码")
+@Api(tags = "生成代码-标准")
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -26,10 +26,17 @@ import java.util.List;
 public class GeneratorController {
     private final GeneratorService generatorService;
 
-    @ApiOperation(value = "生成代码")
+    @ApiOperation(value = "生成代码全部")
     @PostMapping("/generatorCodeAll")
     public ResponseResult generatorCodeAll(@Validated @RequestBody GeneratorReq generatorReq) throws Exception {
         generatorService.generatorCodeAll(generatorReq);
+        return ResponseResult.success();
+    }
+
+    @ApiOperation(value = "生成代码MapperAndEntityDTO")
+    @PostMapping("/generatorCodeMapperAndEntityDTO")
+    public ResponseResult generatorCodeMapperAndEntityDTO(@Validated @RequestBody GeneratorReq generatorReq) throws Exception {
+        generatorService.generatorCodeMapperAndEntityDTO(generatorReq);
         return ResponseResult.success();
     }
 

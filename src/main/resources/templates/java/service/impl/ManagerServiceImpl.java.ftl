@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Slf4j
 @Service

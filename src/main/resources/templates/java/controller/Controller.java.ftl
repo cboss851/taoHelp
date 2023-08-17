@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Api(tags = "${table.nameLower}")
 @Slf4j
@@ -29,22 +28,19 @@ public class ${table.nameUpperCamelCase}Controller {
     @ApiOperation(value = "新增", notes = "作者：${author} <br/> 模块功能：v0.0.1->管理->新增")
     @PostMapping("/insert")
     public ResponseResult insert(@Validated @RequestBody ${table.nameUpperCamelCase}InsertReq req) {
-        ${table.nameLowerCamelCase}Service.insert(req);
-        return ResponseResult.success();
+        return ${table.nameLowerCamelCase}Service.insert(req);
     }
 
     @ApiOperation(value = "修改", notes = "作者：${author} <br/> 模块功能：v0.0.1->管理->详情->修改")
     @PostMapping("/update")
     public ResponseResult update(@Validated @RequestBody ${table.nameUpperCamelCase}UpdateReq req) {
-        ${table.nameLowerCamelCase}Service.update(req);
-        return ResponseResult.success();
+        return ${table.nameLowerCamelCase}Service.update(req);
     }
 
     @ApiOperation(value = "删除", notes = "作者：${author} <br/> 模块功能：v0.0.1->管理->详情->删除")
     @GetMapping("/delete/{${table.primaryKeyNameLowerCamelCase}}")
     public ResponseResult delete(@PathVariable Long ${table.primaryKeyNameLowerCamelCase}) {
-        ${table.nameLowerCamelCase}Service.delete(${table.primaryKeyNameLowerCamelCase});
-        return ResponseResult.success();
+        return ${table.nameLowerCamelCase}Service.delete(${table.primaryKeyNameLowerCamelCase});
     }
 
     @ApiOperation(value = "分页列表", notes = "作者：${author} <br/> 模块功能：v0.0.1->管理->分页列表")

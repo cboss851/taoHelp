@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  *
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Data
 public class ${className} implements Serializable {

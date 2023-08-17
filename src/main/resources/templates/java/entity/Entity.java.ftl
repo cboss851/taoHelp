@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Data
 public class ${entityClassName} implements Serializable {

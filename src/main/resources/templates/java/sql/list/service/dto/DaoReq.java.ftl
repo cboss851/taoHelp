@@ -13,7 +13,6 @@ import java.util.Date;
  *
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Data
 @Builder

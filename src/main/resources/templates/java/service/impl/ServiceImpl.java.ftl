@@ -2,6 +2,7 @@ package ${packageName}.service.${table.nameLower}.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.tao.commons.result.ResponseResult;
 import com.tao.commons.result.ResponseResultPage;
 import com.tao.commons.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,6 @@ import ${packageName}.service.${table.nameLower}.dto.*;
  * ${table.comment!}
  *
  * @author ${author}
- * @Date ${date}
  **/
 @Slf4j
 @Service
@@ -29,22 +29,25 @@ public class ${table.nameUpperCamelCase}ServiceImpl implements ${table.nameUpper
     private final Custom${table.nameUpperCamelCase}Mapper custom${table.nameUpperCamelCase}Mapper;
 
     @Override
-    public void insert(${table.nameUpperCamelCase}InsertReq req){
+    public ResponseResult insert(${table.nameUpperCamelCase}InsertReq req){
         ${table.nameUpperCamelCase} ${table.nameLowerCamelCase} = new ${table.nameUpperCamelCase}();
         BeanUtils.copyProperties(req, ${table.nameLowerCamelCase});
         ${table.nameLowerCamelCase}Mapper.insertSelective(${table.nameLowerCamelCase});
+		return ResponseResult.success();
     }
 
     @Override
-    public void update(${table.nameUpperCamelCase}UpdateReq req){
+    public ResponseResult update(${table.nameUpperCamelCase}UpdateReq req){
         ${table.nameUpperCamelCase} ${table.nameLowerCamelCase} = new ${table.nameUpperCamelCase}();
         BeanUtils.copyProperties(req, ${table.nameLowerCamelCase});
         ${table.nameLowerCamelCase}Mapper.updateByPrimaryKeySelective(${table.nameLowerCamelCase});
+		return ResponseResult.success();
     }
 
     @Override
-    public void delete(Long ${table.primaryKeyNameLowerCamelCase}){
+    public ResponseResult delete(Long ${table.primaryKeyNameLowerCamelCase}){
         ${table.nameLowerCamelCase}Mapper.deleteByPrimaryKey(${table.primaryKeyNameLowerCamelCase});
+		return ResponseResult.success();
     }
 
     @Override
@@ -54,7 +57,7 @@ public class ${table.nameUpperCamelCase}ServiceImpl implements ${table.nameUpper
         ${table.nameUpperCamelCase}ListDaoReq daoReq = BeanUtils.copyBean(req, ${table.nameUpperCamelCase}ListDaoReq.class);
         List<${table.nameUpperCamelCase}ListModel> modelList = custom${table.nameUpperCamelCase}Mapper.list(daoReq);
 
-        List<ExampleNiceListRsp> rspList = BeanUtils.copyBeanList(modelList, ExampleNiceListRsp.class);
+        List<${table.nameUpperCamelCase}ListRsp> rspList = BeanUtils.copyBeanList(modelList, ${table.nameUpperCamelCase}ListRsp.class);
         return ResponseResultPage.page(page.getTotal(), rspList);
     }
 
